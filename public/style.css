@@ -108,3 +108,37 @@ button:hover {
         transform: translateY(0);
     }
 }
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* FOOTER */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 12px 0;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 14px;
+}
+
+/* FIX CONTENT OVERLAP */
+body {
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
