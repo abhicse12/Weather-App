@@ -1,30 +1,29 @@
 const express = require('express');
 const fetch = require('node-fetch');
 require('dotenv').config();
-
 const app = express();
 
-// static files serve karega
 app.use(express.static('public'));
 
-// API route
+const API_KEY = process.env.API_KEY;
+
 app.get('/weather', async (req, res) => {
     const city = req.query.city;
-    const apiKey = process.env.API_KEY;
 
     try {
         const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
         );
 
         const data = await response.json();
-
         res.json(data);
     } catch (error) {
-        res.status(500).json({ error: "Something went wrong" });
+        res.status(500).json({ error: 'Error fetching weather data' });
     }
 });
 
-app.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
